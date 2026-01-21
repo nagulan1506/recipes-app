@@ -1,0 +1,657 @@
+[
+  {
+    "title": "Classic Chocolate Chip Cookies",
+    "description": "Soft and chewy chocolate chip cookies that are perfect for any occasion. Made with brown butter for extra flavor depth.",
+    "ingredients": [
+      {
+        "name": "All-purpose flour",
+        "quantity": "2.25",
+        "unit": "cups"
+      },
+      {
+        "name": "Baking soda",
+        "quantity": "1",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Salt",
+        "quantity": "1",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Unsalted butter",
+        "quantity": "1",
+        "unit": "cup"
+      },
+      {
+        "name": "Brown sugar",
+        "quantity": "0.75",
+        "unit": "cup"
+      },
+      {
+        "name": "White sugar",
+        "quantity": "0.75",
+        "unit": "cup"
+      },
+      {
+        "name": "Large eggs",
+        "quantity": "2",
+        "unit": "pieces"
+      },
+      {
+        "name": "Vanilla extract",
+        "quantity": "2",
+        "unit": "teaspoons"
+      },
+      {
+        "name": "Chocolate chips",
+        "quantity": "2",
+        "unit": "cups"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Preheat oven to 375°F (190°C). Line baking sheets with parchment paper."
+      },
+      {
+        "step": 2,
+        "description": "In a medium bowl, whisk together flour, baking soda, and salt. Set aside."
+      },
+      {
+        "step": 3,
+        "description": "In a large bowl, cream together butter and both sugars until light and fluffy."
+      },
+      {
+        "step": 4,
+        "description": "Beat in eggs one at a time, then add vanilla extract."
+      },
+      {
+        "step": 5,
+        "description": "Gradually mix in the flour mixture until just combined."
+      },
+      {
+        "step": 6,
+        "description": "Fold in chocolate chips evenly throughout the dough."
+      },
+      {
+        "step": 7,
+        "description": "Drop rounded tablespoons of dough onto prepared baking sheets, spacing 2 inches apart."
+      },
+      {
+        "step": 8,
+        "description": "Bake for 9-11 minutes or until edges are golden brown. Cool on baking sheet for 5 minutes before transferring to wire rack."
+      }
+    ],
+    "cookingTime": 10,
+    "preparationTime": 15,
+    "servings": 36,
+    "difficulty": "Easy",
+    "category": "Dessert",
+    "cuisine": "American",
+    "tags": ["cookies", "chocolate", "dessert", "baking", "sweet"],
+    "nutritionInfo": {
+      "calories": 180,
+      "protein": 2,
+      "carbohydrates": 24,
+      "fat": 9
+    },
+    "imageUrl": "https://example.com/chocolate-chip-cookies.jpg",
+    "rating": 4.8,
+    "reviews": [
+      {
+        "user": "Sarah Johnson",
+        "comment": "Amazing cookies! My family loved them.",
+        "rating": 5
+      },
+      {
+        "user": "Mike Chen",
+        "comment": "Perfect texture, will make again!",
+        "rating": 5
+      }
+    ],
+    "createdBy": "Chef Emily",
+    "isPublic": true
+  },
+  {
+    "title": "Spaghetti Carbonara",
+    "description": "Authentic Italian pasta dish with eggs, cheese, pancetta, and black pepper. Simple yet elegant.",
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "quantity": "400",
+        "unit": "grams"
+      },
+      {
+        "name": "Pancetta",
+        "quantity": "150",
+        "unit": "grams"
+      },
+      {
+        "name": "Large eggs",
+        "quantity": "3",
+        "unit": "pieces"
+      },
+      {
+        "name": "Pecorino Romano cheese",
+        "quantity": "100",
+        "unit": "grams"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "1",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Salt",
+        "quantity": "1",
+        "unit": "teaspoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Bring a large pot of salted water to boil. Cook spaghetti according to package directions until al dente."
+      },
+      {
+        "step": 2,
+        "description": "While pasta cooks, cut pancetta into small cubes and cook in a large skillet until crispy."
+      },
+      {
+        "step": 3,
+        "description": "In a bowl, whisk together eggs, grated cheese, and black pepper."
+      },
+      {
+        "step": 4,
+        "description": "Reserve 1 cup of pasta cooking water before draining the spaghetti."
+      },
+      {
+        "step": 5,
+        "description": "Add hot pasta to the skillet with pancetta and toss to combine."
+      },
+      {
+        "step": 6,
+        "description": "Remove from heat and quickly stir in the egg mixture, adding pasta water gradually to create a creamy sauce."
+      },
+      {
+        "step": 7,
+        "description": "Serve immediately with extra cheese and black pepper."
+      }
+    ],
+    "cookingTime": 15,
+    "preparationTime": 10,
+    "servings": 4,
+    "difficulty": "Medium",
+    "category": "Main Course",
+    "cuisine": "Italian",
+    "tags": ["pasta", "italian", "eggs", "cheese", "quick"],
+    "nutritionInfo": {
+      "calories": 450,
+      "protein": 18,
+      "carbohydrates": 68,
+      "fat": 12
+    },
+    "imageUrl": "https://example.com/spaghetti-carbonara.jpg",
+    "rating": 4.6,
+    "reviews": [
+      {
+        "user": "Giuseppe Romano",
+        "comment": "Perfetto! Just like my nonna used to make.",
+        "rating": 5
+      },
+      {
+        "user": "Anna Davis",
+        "comment": "Creamy and delicious, authentic recipe!",
+        "rating": 4
+      }
+    ],
+    "createdBy": "Chef Marco",
+    "isPublic": true
+  },
+  {
+    "title": "Avocado Toast",
+    "description": "Simple and nutritious breakfast with mashed avocado on toasted bread, topped with various garnishes.",
+    "ingredients": [
+      {
+        "name": "Whole grain bread",
+        "quantity": "2",
+        "unit": "slices"
+      },
+      {
+        "name": "Ripe avocados",
+        "quantity": "1",
+        "unit": "piece"
+      },
+      {
+        "name": "Lemon juice",
+        "quantity": "1",
+        "unit": "tablespoon"
+      },
+      {
+        "name": "Salt",
+        "quantity": "0.5",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "0.25",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Red pepper flakes",
+        "quantity": "0.25",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Cherry tomatoes",
+        "quantity": "4",
+        "unit": "pieces"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Toast the bread slices until golden brown."
+      },
+      {
+        "step": 2,
+        "description": "Cut avocado in half, remove pit, and scoop flesh into a bowl."
+      },
+      {
+        "step": 3,
+        "description": "Mash avocado with lemon juice, salt, and black pepper until smooth or chunky as desired."
+      },
+      {
+        "step": 4,
+        "description": "Spread avocado mixture evenly on toasted bread."
+      },
+      {
+        "step": 5,
+        "description": "Top with sliced cherry tomatoes and red pepper flakes."
+      },
+      {
+        "step": 6,
+        "description": "Serve immediately while toast is still warm."
+      }
+    ],
+    "cookingTime": 5,
+    "preparationTime": 5,
+    "servings": 2,
+    "difficulty": "Easy",
+    "category": "Breakfast",
+    "cuisine": "Modern",
+    "tags": ["healthy", "breakfast", "avocado", "vegetarian", "quick"],
+    "nutritionInfo": {
+      "calories": 250,
+      "protein": 8,
+      "carbohydrates": 30,
+      "fat": 15
+    },
+    "imageUrl": "https://example.com/avocado-toast.jpg",
+    "rating": 4.2,
+    "reviews": [
+      {
+        "user": "Health Foodie",
+        "comment": "Perfect healthy breakfast!",
+        "rating": 5
+      },
+      {
+        "user": "Tom Wilson",
+        "comment": "Simple and tasty.",
+        "rating": 4
+      }
+    ],
+    "createdBy": "Nutritionist Kate",
+    "isPublic": true
+  },
+  {
+    "title": "Beef Wellington",
+    "description": "Elegant dish featuring beef tenderloin wrapped in pâté and puff pastry. Perfect for special occasions.",
+    "ingredients": [
+      {
+        "name": "Beef tenderloin",
+        "quantity": "2",
+        "unit": "pounds"
+      },
+      {
+        "name": "Puff pastry",
+        "quantity": "1",
+        "unit": "sheet"
+      },
+      {
+        "name": "Mushrooms",
+        "quantity": "8",
+        "unit": "ounces"
+      },
+      {
+        "name": "Prosciutto",
+        "quantity": "6",
+        "unit": "slices"
+      },
+      {
+        "name": "Dijon mustard",
+        "quantity": "2",
+        "unit": "tablespoons"
+      },
+      {
+        "name": "Egg",
+        "quantity": "1",
+        "unit": "piece"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": "2",
+        "unit": "tablespoons"
+      },
+      {
+        "name": "Salt",
+        "quantity": "1",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "1",
+        "unit": "teaspoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Season beef with salt and pepper. Sear in hot oil until browned on all sides. Cool completely."
+      },
+      {
+        "step": 2,
+        "description": "Brush beef with Dijon mustard."
+      },
+      {
+        "step": 3,
+        "description": "Finely chop mushrooms and cook until moisture evaporates. Cool completely."
+      },
+      {
+        "step": 4,
+        "description": "Lay plastic wrap on work surface, arrange prosciutto slices overlapping."
+      },
+      {
+        "step": 5,
+        "description": "Spread mushroom mixture over prosciutto, place beef on top, and wrap tightly."
+      },
+      {
+        "step": 6,
+        "description": "Refrigerate for at least 30 minutes."
+      },
+      {
+        "step": 7,
+        "description": "Wrap in puff pastry, seal edges, and brush with beaten egg."
+      },
+      {
+        "step": 8,
+        "description": "Bake at 400°F for 25-30 minutes until pastry is golden and internal temp reaches 125°F."
+      },
+      {
+        "step": 9,
+        "description": "Rest for 10 minutes before slicing."
+      }
+    ],
+    "cookingTime": 45,
+    "preparationTime": 60,
+    "servings": 6,
+    "difficulty": "Hard",
+    "category": "Main Course",
+    "cuisine": "British",
+    "tags": ["beef", "pastry", "elegant", "special occasion", "gourmet"],
+    "nutritionInfo": {
+      "calories": 520,
+      "protein": 35,
+      "carbohydrates": 18,
+      "fat": 32
+    },
+    "imageUrl": "https://example.com/beef-wellington.jpg",
+    "rating": 4.9,
+    "reviews": [
+      {
+        "user": "Chef Robert",
+        "comment": "Magnificent! Worth every minute of preparation.",
+        "rating": 5
+      },
+      {
+        "user": "Food Critic Jane",
+        "comment": "Restaurant quality at home!",
+        "rating": 5
+      }
+    ],
+    "createdBy": "Master Chef James",
+    "isPublic": true
+  },
+  {
+    "title": "Greek Salad",
+    "description": "Fresh and vibrant Mediterranean salad with tomatoes, cucumbers, olives, and feta cheese.",
+    "ingredients": [
+      {
+        "name": "Tomatoes",
+        "quantity": "4",
+        "unit": "large"
+      },
+      {
+        "name": "Cucumber",
+        "quantity": "1",
+        "unit": "large"
+      },
+      {
+        "name": "Red onion",
+        "quantity": "0.5",
+        "unit": "medium"
+      },
+      {
+        "name": "Kalamata olives",
+        "quantity": "0.5",
+        "unit": "cup"
+      },
+      {
+        "name": "Feta cheese",
+        "quantity": "4",
+        "unit": "ounces"
+      },
+      {
+        "name": "Extra virgin olive oil",
+        "quantity": "3",
+        "unit": "tablespoons"
+      },
+      {
+        "name": "Red wine vinegar",
+        "quantity": "2",
+        "unit": "tablespoons"
+      },
+      {
+        "name": "Dried oregano",
+        "quantity": "1",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Salt",
+        "quantity": "0.5",
+        "unit": "teaspoon"
+      },
+      {
+        "name": "Black pepper",
+        "quantity": "0.25",
+        "unit": "teaspoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Cut tomatoes into wedges and place in a large bowl."
+      },
+      {
+        "step": 2,
+        "description": "Slice cucumber into thick rounds and add to tomatoes."
+      },
+      {
+        "step": 3,
+        "description": "Thinly slice red onion and add to the bowl."
+      },
+      {
+        "step": 4,
+        "description": "Add Kalamata olives to the mixture."
+      },
+      {
+        "step": 5,
+        "description": "Crumble feta cheese over the vegetables."
+      },
+      {
+        "step": 6,
+        "description": "In a small bowl, whisk together olive oil, red wine vinegar, oregano, salt, and pepper."
+      },
+      {
+        "step": 7,
+        "description": "Drizzle dressing over salad and toss gently to combine."
+      },
+      {
+        "step": 8,
+        "description": "Let stand for 10 minutes before serving to allow flavors to meld."
+      }
+    ],
+    "cookingTime": 1,
+    "preparationTime": 15,
+    "servings": 4,
+    "difficulty": "Easy",
+    "category": "Appetizer",
+    "cuisine": "Greek",
+    "tags": ["salad", "mediterranean", "vegetarian", "healthy", "fresh"],
+    "nutritionInfo": {
+      "calories": 220,
+      "protein": 8,
+      "carbohydrates": 12,
+      "fat": 18
+    },
+    "imageUrl": "https://example.com/greek-salad.jpg",
+    "rating": 4.5,
+    "reviews": [
+      {
+        "user": "Maria Kostas",
+        "comment": "Authentic and delicious!",
+        "rating": 5
+      },
+      {
+        "user": "Health Enthusiast",
+        "comment": "Fresh and flavorful, perfect summer dish.",
+        "rating": 4
+      }
+    ],
+    "createdBy": "Chef Dimitri",
+    "isPublic": true
+  },
+  {
+    "title": "Green Smoothie",
+    "description": "Nutritious and energizing green smoothie packed with spinach, fruits, and healthy ingredients.",
+    "ingredients": [
+      {
+        "name": "Fresh spinach",
+        "quantity": "2",
+        "unit": "cups"
+      },
+      {
+        "name": "Banana",
+        "quantity": "1",
+        "unit": "medium"
+      },
+      {
+        "name": "Green apple",
+        "quantity": "1",
+        "unit": "medium"
+      },
+      {
+        "name": "Cucumber",
+        "quantity": "0.5",
+        "unit": "medium"
+      },
+      {
+        "name": "Lemon juice",
+        "quantity": "2",
+        "unit": "tablespoons"
+      },
+      {
+        "name": "Fresh ginger",
+        "quantity": "1",
+        "unit": "inch"
+      },
+      {
+        "name": "Water",
+        "quantity": "1",
+        "unit": "cup"
+      },
+      {
+        "name": "Honey",
+        "quantity": "1",
+        "unit": "tablespoon"
+      }
+    ],
+    "instructions": [
+      {
+        "step": 1,
+        "description": "Wash all fresh produce thoroughly."
+      },
+      {
+        "step": 2,
+        "description": "Peel and slice banana and ginger."
+      },
+      {
+        "step": 3,
+        "description": "Core apple and cut into chunks (leave skin on)."
+      },
+      {
+        "step": 4,
+        "description": "Peel cucumber and cut into pieces."
+      },
+      {
+        "step": 5,
+        "description": "Add all ingredients to a high-speed blender."
+      },
+      {
+        "step": 6,
+        "description": "Blend on high speed for 60-90 seconds until completely smooth."
+      },
+      {
+        "step": 7,
+        "description": "Add more water if needed to reach desired consistency."
+      },
+      {
+        "step": 8,
+        "description": "Taste and adjust sweetness with more honey if needed."
+      },
+      {
+        "step": 9,
+        "description": "Serve immediately over ice or refrigerate for up to 24 hours."
+      }
+    ],
+    "cookingTime": 1,
+    "preparationTime": 10,
+    "servings": 2,
+    "difficulty": "Easy",
+    "category": "Beverage",
+    "cuisine": "Modern",
+    "tags": ["smoothie", "healthy", "green", "detox", "vegan", "gluten-free"],
+    "nutritionInfo": {
+      "calories": 120,
+      "protein": 3,
+      "carbohydrates": 28,
+      "fat": 1
+    },
+    "imageUrl": "https://example.com/green-smoothie.jpg",
+    "rating": 4.3,
+    "reviews": [
+      {
+        "user": "Fitness Guru",
+        "comment": "Perfect post-workout drink!",
+        "rating": 5
+      },
+      {
+        "user": "Green Living",
+        "comment": "Great way to get your daily greens.",
+        "rating": 4
+      }
+    ],
+    "createdBy": "Nutritionist Sarah",
+    "isPublic": true
+  }
+]
