@@ -1,0 +1,881 @@
+{
+	"info": {
+		"_postman_id": "f4c8a2b0-8d1e-4a2f-9c5a-1b2c3d4e5f6g",
+		"name": "Recipes API - Complete CRUD Collection",
+		"description": "Comprehensive collection for testing the Recipes API with all CRUD operations, filtering, search, and error handling scenarios.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12345678"
+	},
+	"item": [
+		{
+			"name": "Health & Documentation",
+			"item": [
+				{
+					"name": "Health Check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Health check successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.message).to.include(\"running successfully\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{healthURL}}",
+							"host": [
+								"{{healthURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Documentation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"API documentation accessible\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response).to.have.property('documentation');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/../../api",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"..",
+								"..",
+								"api"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Operations",
+			"item": [
+				{
+					"name": "Create Recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Recipe created successfully\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.data).to.have.property('_id');",
+									"    ",
+									"    // Store recipe ID for future tests",
+									"    pm.environment.set(\"recipeId\", response.data._id);",
+									"});",
+									"",
+									"pm.test(\"Response contains required fields\", function () {",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.data).to.have.property('title', 'Chocolate Chip Cookies');",
+									"    pm.expect(response.data).to.have.property('difficulty', 'Easy');",
+									"    pm.expect(response.data.ingredients).to.be.an('array');",
+									"    pm.expect(response.data.instructions).to.be.an('array');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Chocolate Chip Cookies\",\n  \"description\": \"Classic homemade chocolate chip cookies that are soft and chewy\",\n  \"ingredients\": [\n    {\n      \"name\": \"All-purpose flour\",\n      \"quantity\": \"2.25\",\n      \"unit\": \"cups\"\n    },\n    {\n      \"name\": \"Baking soda\",\n      \"quantity\": \"1\",\n      \"unit\": \"teaspoon\"\n    },\n    {\n      \"name\": \"Salt\",\n      \"quantity\": \"1\",\n      \"unit\": \"teaspoon\"\n    },\n    {\n      \"name\": \"Unsalted butter\",\n      \"quantity\": \"1\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"name\": \"Brown sugar\",\n      \"quantity\": \"0.75\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"name\": \"White sugar\",\n      \"quantity\": \"0.75\",\n      \"unit\": \"cup\"\n    },\n    {\n      \"name\": \"Large eggs\",\n      \"quantity\": \"2\",\n      \"unit\": \"pieces\"\n    },\n    {\n      \"name\": \"Vanilla extract\",\n      \"quantity\": \"2\",\n      \"unit\": \"teaspoons\"\n    },\n    {\n      \"name\": \"Chocolate chips\",\n      \"quantity\": \"2\",\n      \"unit\": \"cups\"\n    }\n  ],\n  \"instructions\": [\n    {\n      \"step\": 1,\n      \"description\": \"Preheat oven to 375°F (190°C). Line baking sheets with parchment paper.\"\n    },\n    {\n      \"step\": 2,\n      \"description\": \"In a medium bowl, whisk together flour, baking soda, and salt. Set aside.\"\n    },\n    {\n      \"step\": 3,\n      \"description\": \"In a large bowl, cream together butter and both sugars until light and fluffy.\"\n    },\n    {\n      \"step\": 4,\n      \"description\": \"Beat in eggs one at a time, then add vanilla extract.\"\n    },\n    {\n      \"step\": 5,\n      \"description\": \"Gradually mix in the flour mixture until just combined.\"\n    },\n    {\n      \"step\": 6,\n      \"description\": \"Fold in chocolate chips evenly throughout the dough.\"\n    },\n    {\n      \"step\": 7,\n      \"description\": \"Drop rounded tablespoons of dough onto prepared baking sheets, spacing 2 inches apart.\"\n    },\n    {\n      \"step\": 8,\n      \"description\": \"Bake for 9-11 minutes or until edges are golden brown. Cool on baking sheet for 5 minutes before transferring to wire rack.\"\n    }\n  ],\n  \"cookingTime\": 10,\n  \"preparationTime\": 15,\n  \"servings\": 36,\n  \"difficulty\": \"Easy\",\n  \"category\": \"Dessert\",\n  \"cuisine\": \"American\",\n  \"tags\": [\"cookies\", \"chocolate\", \"dessert\", \"baking\", \"sweet\"],\n  \"nutritionInfo\": {\n    \"calories\": 180,\n    \"protein\": 2,\n    \"carbohydrates\": 24,\n    \"fat\": 9\n  },\n  \"imageUrl\": \"https://example.com/chocolate-chip-cookies.jpg\",\n  \"createdBy\": \"Chef Emily\",\n  \"isPublic\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/recipes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Recipes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get all recipes successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.data).to.be.an('array');",
+									"    pm.expect(response).to.have.property('pagination');",
+									"});",
+									"",
+									"pm.test(\"Pagination info is correct\", function () {",
+									"    const response = pm.response.json();",
+									"    const pagination = response.pagination;",
+									"    pm.expect(pagination).to.have.property('currentPage');",
+									"    pm.expect(pagination).to.have.property('totalPages');",
+									"    pm.expect(pagination).to.have.property('total');",
+									"    pm.expect(pagination).to.have.property('limit');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes?page=1&limit=10&sortBy=createdAt&sortOrder=desc",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "createdAt"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipe by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get recipe by ID successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.data).to.have.property('_id');",
+									"    pm.expect(response.data).to.have.property('title');",
+									"});",
+									"",
+									"pm.test(\"Recipe contains all required fields\", function () {",
+									"    const response = pm.response.json();",
+									"    const recipe = response.data;",
+									"    ",
+									"    pm.expect(recipe).to.have.property('ingredients');",
+									"    pm.expect(recipe).to.have.property('instructions');",
+									"    pm.expect(recipe).to.have.property('cookingTime');",
+									"    pm.expect(recipe).to.have.property('preparationTime');",
+									"    pm.expect(recipe).to.have.property('difficulty');",
+									"    pm.expect(recipe).to.have.property('category');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/{{recipeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"{{recipeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Recipe updated successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.data.title).to.equal(\"Updated Chocolate Chip Cookies\");",
+									"    pm.expect(response.data.cookingTime).to.equal(12);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Chocolate Chip Cookies\",\n  \"cookingTime\": 12,\n  \"rating\": 4.8\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/recipes/{{recipeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"{{recipeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Recipe deleted successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.message).to.include(\"deleted successfully\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/{{recipeId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"{{recipeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search & Filter",
+			"item": [
+				{
+					"name": "Search Recipes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Search results returned\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.data).to.be.an('array');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes?search=chocolate&category=Dessert&difficulty=Easy&page=1&limit=5",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "chocolate"
+								},
+								{
+									"key": "category",
+									"value": "Dessert"
+								},
+								{
+									"key": "difficulty",
+									"value": "Easy"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipes by Category - Dessert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Category filter works correctly\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    ",
+									"    if (response.data.length > 0) {",
+									"        response.data.forEach(recipe => {",
+									"            pm.expect(recipe.category).to.equal(\"Dessert\");",
+									"        });",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/category/Dessert?page=1&limit=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"category",
+								"Dessert"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipes by Category - Main Course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Category filter works correctly\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    ",
+									"    if (response.data.length > 0) {",
+									"        response.data.forEach(recipe => {",
+									"            pm.expect(recipe.category).to.equal(\"Main Course\");",
+									"        });",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/category/Main Course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"category",
+								"Main Course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipes by Difficulty - Easy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Difficulty filter works correctly\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    ",
+									"    if (response.data.length > 0) {",
+									"        response.data.forEach(recipe => {",
+									"            pm.expect(recipe.difficulty).to.equal(\"Easy\");",
+									"        });",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/difficulty/Easy?page=1&limit=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"difficulty",
+								"Easy"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter by Rating and Cooking Time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Numeric filters work correctly\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    ",
+									"    if (response.data.length > 0) {",
+									"        response.data.forEach(recipe => {",
+									"            pm.expect(recipe.rating).to.be.at.least(4);",
+									"            pm.expect(recipe.cookingTime).to.be.at.most(30);",
+									"        });",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes?minRating=4&maxCookingTime=30&sortBy=rating&sortOrder=desc",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "minRating",
+									"value": "4"
+								},
+								{
+									"key": "maxCookingTime",
+									"value": "30"
+								},
+								{
+									"key": "sortBy",
+									"value": "rating"
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews & Statistics",
+			"item": [
+				{
+					"name": "Add Review to Recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Review added successfully\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.data.reviews).to.be.an('array');",
+									"    ",
+									"    // Check if the new review was added",
+									"    const reviews = response.data.reviews;",
+									"    const newReview = reviews.find(review => review.user === \"John Doe\");",
+									"    pm.expect(newReview).to.exist;",
+									"    pm.expect(newReview.rating).to.equal(5);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\": \"John Doe\",\n  \"comment\": \"Absolutely delicious cookies! My family loved them.\",\n  \"rating\": 5\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/recipes/{{recipeId}}/reviews",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"{{recipeId}}",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipe Statistics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Statistics retrieved successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.true;",
+									"    pm.expect(response.data).to.have.property('overview');",
+									"    pm.expect(response.data).to.have.property('byCategory');",
+									"    pm.expect(response.data).to.have.property('byDifficulty');",
+									"});",
+									"",
+									"pm.test(\"Statistics contain valid data\", function () {",
+									"    const response = pm.response.json();",
+									"    const overview = response.data.overview;",
+									"    ",
+									"    if (overview.totalRecipes) {",
+									"        pm.expect(overview.totalRecipes).to.be.a('number');",
+									"        pm.expect(overview.totalRecipes).to.be.above(0);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/stats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Error Handling",
+			"item": [
+				{
+					"name": "Invalid Recipe ID Format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid ID error handled correctly\", function () {",
+									"    pm.response.to.have.status(400);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.false;",
+									"    pm.expect(response.error).to.equal(\"Invalid ID\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/invalid-id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"invalid-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recipe Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Recipe not found error handled correctly\", function () {",
+									"    pm.response.to.have.status(404);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.false;",
+									"    pm.expect(response.error).to.equal(\"Recipe not found\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/507f1f77bcf86cd799439011",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"507f1f77bcf86cd799439011"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validation Error - Missing Required Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validation error handled correctly\", function () {",
+									"    pm.response.to.have.status(400);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.false;",
+									"    pm.expect(response.error).to.equal(\"Validation Error\");",
+									"    pm.expect(response.details).to.be.an('array');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"AB\",\n  \"description\": \"\",\n  \"cookingTime\": -5\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/recipes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid category error handled correctly\", function () {",
+									"    pm.response.to.have.status(400);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.false;",
+									"    pm.expect(response.error).to.equal(\"Invalid category\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/category/InvalidCategory",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"category",
+								"InvalidCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Difficulty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid difficulty error handled correctly\", function () {",
+									"    pm.response.to.have.status(400);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to.be.false;",
+									"    pm.expect(response.error).to.equal(\"Invalid difficulty\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/recipes/difficulty/InvalidDifficulty",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"recipes",
+								"difficulty",
+								"InvalidDifficulty"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bulk Operations",
+			"item": [
+				{
+					"name": "Create Multiple Recipes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Second recipe created successfully\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    const response = pm.response.json();",
+									"    pm.expect(response.success).to
